@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="main-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">سياسة الخصوصية — منصة وتطبيق أفق (OFOQ)</title>
+  <meta name="description" content="سياسة الخصوصية الرسمية لتطبيق ومنصة أفق (OFOQ) للمناهج السورية — خصوصية الطالب وأمان بياناته التعليمية أولويتنا المطلقة.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #13523F;
+      --primary-dark: #0A3226;
+      --primary-light: #22734A;
+      --accent: #D97706;
+      --accent-light: #F59E0B;
+      --bg: #F9FAF8;
+      --bg-card: #FFFFFF;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --highlight-bg: #ECFDF5;
+      --highlight-border: #A7F3D0;
+      --highlight-text: #064E3B;
+    }
+    [data-theme="dark"] {
+      --primary: #22734A;
+      --primary-dark: #13523F;
+      --primary-light: #34D399;
+      --accent: #F59E0B;
+      --accent-light: #FBBF24;
+      --bg: #091310;
+      --bg-card: #11221D;
+      --text: #F1F5F9;
+      --text-muted: #94A3B8;
+      --border: #1E3830;
+      --highlight-bg: #062820;
+      --highlight-border: #13523F;
+      --highlight-text: #6EE7B7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+    body {
+      font-family: 'Cairo', 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    [lang="en"] body { font-family: 'Inter', 'Cairo', sans-serif; }
+    header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #FFFFFF;
+      padding: 44px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .top-bar {
+      position: absolute;
+      top: 15px;
+      inset-inline-end: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .action-btn {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .action-btn:hover { background: rgba(255, 255, 255, 0.28); }
+    .back-btn { position: absolute; top: 15px; inset-inline-start: 20px; }
+    .header-logo { width: 56px; height: 56px; margin-bottom: 12px; }
+    h1 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; margin-bottom: 6px; }
+    .header-sub { opacity: 0.92; font-size: 16px; }
+    main {
+      max-width: 880px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 20px;
+      flex: 1;
+    }
+    .summary-card {
+      background: var(--highlight-bg);
+      border: 1px solid var(--highlight-border);
+      border-radius: 18px;
+      padding: 24px;
+      color: var(--highlight-text);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 4px 12px rgba(19, 82, 63, 0.08);
+    }
+    .summary-card i { font-size: 28px; margin-top: 2px; color: var(--primary); }
+    .policy-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .policy-section h2 {
+      font-size: 19px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+    }
+    .policy-section ul {
+      padding-inline-start: 24px;
+      color: var(--text-muted);
+    }
+    .policy-section li { margin-bottom: 9px; }
+    .policy-section p { color: var(--text-muted); margin-bottom: 8px; }
+    strong { color: var(--text); }
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./" class="action-btn back-btn" id="back-link">
+      <i class="fa-solid fa-arrow-right" id="back-icon"></i>
+      <span id="back-text">الرئيسية</span>
+    </a>
+    <div class="top-bar">
+      <button class="action-btn" id="lang-btn" onclick="toggleLanguage()">
+        <i class="fa-solid fa-globe"></i>
+        <span id="lang-text">English</span>
+      </button>
+      <button class="action-btn" id="theme-btn" onclick="toggleTheme()">
+        <i class="fa-solid fa-moon" id="theme-icon"></i>
+      </button>
+    </div>
+    <img src="logo.svg" alt="OFOQ Logo" class="header-logo">
+    <h1 id="hdr-title">سياسة الخصوصية وأمان بيانات الطالب</h1>
+    <p class="header-sub" id="hdr-sub">منصة وتطبيق أفق (OFOQ) — المناهج السورية الشاملة</p>
+  </header>
+
+  <main>
+    <div class="summary-card">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <div>
+        <div style="font-size: 17px; font-weight: 800; margin-bottom: 4px;" id="sum-title">تعهد الخصوصية الأكاديمي الشفاف</div>
+        <p id="sum-desc">تطبيق «أفق» مصمم ليكون بيئة تعليمية آمنة وخالية من أي تشويش: لا إعلانات، لا تعقب تجاري، ولا مشاركة لأي بيانات. تقدمك الدراسي وسجلاتك وإجاباتك تبقى على جهازك بنسبة 100%، والمزامنة السحابية اختيارية بحسابك الموحد ومحمية بتقنيات عزل السجلات الصارمة.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <h2 id="sec1-title"><i class="fa-solid fa-landmark"></i> 1. من نحن وهوية المنصة</h2>
+      <p id="sec1-desc">منصة وتطبيق «أفق» (OFOQ) مشروع تعليمي سوري شامل تطوره وتشغله منظومة NuclearMindSys. تهدف المنصة إلى تقديم المحتوى التعليمي للمناهج السورية المعتمدة بنقل حرفي تام وأسلوب تفاعلي حديث لكافة المراحل المدرسية مع تخصص فائق في مرحلتي البكالوريا (العلمي والأدبي) والتعليم الأساسي (الصف التاسع).</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 id="sec2-title"><i class="fa-solid fa-mobile-screen"></i> 2. التخزين المحلي والعمل دون إنترنت (Offline-First)</h2>
+      <ul id="sec2-list">
+        <li><strong>بياناتك على جهازك:</strong> كافة الدروس المقروءة، وسجلات بطاقات التسميع الذكي (Active Recall)، وعلامات اختبارات المصورات، وسجل الأخطاء المؤتمتة تُخزن محلياً داخل قاعدة بيانات SQLite/Drift على هاتفك أو حاسوبك الشخصي.</li>
+        <li><strong>انعدام الإعلانات والتعقب:</strong> التطبيق خالٍ تماماً من أي شبكات إعلانات أو برمجيات تتبع سلوكي أو أدوات تجسس رقمية.</li>
+        <li><strong>العمل الكامل بدون إنترنت:</strong> التطبيق مصمم ليعمل بكامل وظائفه التعليمية بنسبة 100% دون الحاجة إلى أي اتصال شبكي مستمر.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2 id="sec3-title"><i class="fa-solid fa-cloud-arrow-up"></i> 3. المزامنة السحابية الموحدة (اختيارية بالكامل)</h2>
+      <ul id="sec3-list">
+        <li><strong>تسجيل الدخول الاختياري:</strong> لا يُلزم الطالب بتسجيل الدخول لاستخدام التطبيق؛ المزامنة السحابية ميزة اختيارية متاحة عبر Google OAuth لمن يرغب في مزامنة تقدمه وملاحظاته بين أجهزته المتعددة (هاتف، حاسوب، لوحي).</li>
+        <li><strong>أمان عزل السجلات (Row-Level Security):</strong> تُخزن بيانات المستخدمين المتزامنة في بيئة سحابية آمنة ومدارة عبر Supabase بتشفير HTTPS وسياسات RLS صارمة تمنع أي مستخدم أو طرف خارجي من الاطلاع على سجلات طالب آخر.</li>
+        <li><strong>حرية فك الارتباط:</strong> يحق للطالب تسجيل الخروج في أي لحظة وحذف النسخة السحابية مع احتفاظه الكامل بنسخته المحلية على جهازه دون أي نقصان.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2 id="sec4-title"><i class="fa-solid fa-shield-virus"></i> 4. حماية خصوصية الطلاب وصغار السن</h2>
+      <p id="sec4-desc">نظراً لأن منصة «أفق» تخدم طلاب المدارس من مرحلة التعليم الأساسي وحتى الثانوية، فإننا نلتزم بأعلى معايير حماية الأطفال وصغار السن الرقمية (Child Safety & Privacy Compliance): لا نطلب أي معلومات تعريفية حساسة، ولا نسمح بأي غرف دردشة عامة غير مراقبة أو تبادل للملفات الخارجية داخل التطبيق، ونهدف إلى توفير ملاذ دراسي هادئ وموثوق.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2 id="sec5-title"><i class="fa-solid fa-list-check"></i> 5. الأذونات المطلوبة ومبرراتها</h2>
+      <ul id="sec5-list">
+        <li><strong>التخزين / الوسائط:</strong> لحفظ واسترجاع ملفات الحزم التعليمية المصورة والنسخ الاحتياطي لقاعدة بيانات تقدم الطالب عند طلبه.</li>
+        <li><strong>الإنترنت:</strong> يُستخدم حصراً في حالتين: مزامنة السحابة الاختيارية للمستخدم المسجل، والتحقق الدوري من وجود تحديثات للمحتوى الأكاديمي أو التطبيق.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2 id="sec6-title"><i class="fa-solid fa-scale-balanced"></i> 6. التحديثات والتواصل الأكاديمي</h2>
+      <p id="sec6-desc">يتم تحديث هذه السياسة دورياً مع أي تحسينات في البنية التقنية أو التوافق مع الأنظمة التعليمية. للدعم الفني والاستفسار الأكاديمي، يمكن التواصل مع إدارة المنظومة عبر مستودعنا الرسمي على <a href="https://github.com/NuclearMindSys" target="_blank" rel="noopener">GitHub / NuclearMindSys</a>.</p>
+      <p><strong>تاريخ آخر تحديث:</strong> 21 سبتمبر 2026</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>منصة وتطبيق أفق (OFOQ) © 2026 · تطوير وتشغيل <a href="https://github.com/NuclearMindSys" target="_blank" rel="noopener">NuclearMindSys</a></p>
+    <p style="margin-top: 6px;"><a href="./">الصفحة الرئيسية لمنصة أفق</a> · <a href="https://github.com/NuclearMindSys/OFOQ" target="_blank" rel="noopener">المستودع الأكاديمي على GitHub</a></p>
+  </footer>
+
+  <script>
+    const translations = {
+      ar: {
+        pageTitle: "سياسة الخصوصية — منصة وتطبيق أفق (OFOQ)",
+        backText: "الرئيسية",
+        langText: "English",
+        hdrTitle: "سياسة الخصوصية وأمان بيانات الطالب",
+        hdrSub: "منصة وتطبيق أفق (OFOQ) — المناهج السورية الشاملة",
+        sumTitle: "تعهد الخصوصية الأكاديمي الشفاف",
+        sumDesc: "تطبيق «أفق» مصمم ليكون بيئة تعليمية آمنة وخالية من أي تشويش: لا إعلانات، لا تعقب تجاري، ولا مشاركة لأي بيانات. تقدمك الدراسي وسجلاتك وإجاباتك تبقى على جهازك بنسبة 100%، والمزامنة السحابية اختيارية بحسابك الموحد ومحمية بتقنيات عزل السجلات الصارمة.",
+        sec1Title: '<i class="fa-solid fa-landmark"></i> 1. من نحن وهوية المنصة',
+        sec1Desc: 'منصة وتطبيق «أفق» (OFOQ) مشروع تعليمي سوري شامل تطوره وتشغله منظومة NuclearMindSys. تهدف المنصة إلى تقديم المحتوى التعليمي للمناهج السورية المعتمدة بنقل حرفي تام وأسلوب تفاعلي حديث لكافة المراحل المدرسية مع تخصص فائق في مرحلتي البكالوريا (العلمي والأدبي) والتعليم الأساسي (الصف التاسع).',
+        sec2Title: '<i class="fa-solid fa-mobile-screen"></i> 2. التخزين المحلي والعمل دون إنترنت (Offline-First)',
+        sec2List: '<li><strong>بياناتك على جهازك:</strong> كافة الدروس المقروءة، وسجلات بطاقات التسميع الذكي (Active Recall)، وعلامات اختبارات المصورات، وسجل الأخطاء المؤتمتة تُخزن محلياً داخل قاعدة بيانات SQLite/Drift على هاتفك أو حاسوبك الشخصي.</li><li><strong>انعدام الإعلانات والتعقب:</strong> التطبيق خالٍ تماماً من أي شبكات إعلانات أو برمجيات تتبع سلوكي أو أدوات تجسس رقمية.</li><li><strong>العمل الكامل بدون إنترنت:</strong> التطبيق مصمم ليعمل بكامل وظائفه التعليمية بنسبة 100% دون الحاجة إلى أي اتصال شبكي مستمر.</li>',
+        sec3Title: '<i class="fa-solid fa-cloud-arrow-up"></i> 3. المزامنة السحابية الموحدة (اختيارية بالكامل)',
+        sec3List: '<li><strong>تسجيل الدخول الاختياري:</strong> لا يُلزم الطالب بتسجيل الدخول لاستخدام التطبيق؛ المزامنة السحابية ميزة اختيارية متاحة عبر Google OAuth لمن يرغب في مزامنة تقدمه وملاحظاته بين أجهزته المتعددة (هاتف، حاسوب، لوحي).</li><li><strong>أمان عزل السجلات (Row-Level Security):</strong> تُخزن بيانات المستخدمين المتزامنة في بيئة سحابية آمنة ومدارة عبر Supabase بتشفير HTTPS وسياسات RLS صارمة تمنع أي مستخدم أو طرف خارجي من الاطلاع على سجلات طالب آخر.</li><li><strong>حرية فك الارتباط:</strong> يحق للطالب تسجيل الخروج في أي لحظة وحذف النسخة السحابية مع احتفاظه الكامل بنسخته المحلية على جهازه دون أي نقصان.</li>',
+        sec4Title: '<i class="fa-solid fa-shield-virus"></i> 4. حماية خصوصية الطلاب وصغار السن',
+        sec4Desc: 'نظراً لأن منصة «أفق» تخدم طلاب المدارس من مرحلة التعليم الأساسي وحتى الثانوية، فإننا نلتزم بأعلى معايير حماية الأطفال وصغار السن الرقمية (Child Safety & Privacy Compliance): لا نطلب أي معلومات تعريفية حساسة، ولا نسمح بأي غرف دردشة عامة غير مراقبة أو تبادل للملفات الخارجية داخل التطبيق، ونهدف إلى توفير ملاذ دراسي هادئ وموثوق.',
+        sec5Title: '<i class="fa-solid fa-list-check"></i> 5. الأذونات المطلوبة ومبرراتها',
+        sec5List: '<li><strong>التخزين / الوسائط:</strong> لحفظ واسترجاع ملفات الحزم التعليمية المصورة والنسخ الاحتياطي لقاعدة بيانات تقدم الطالب عند طلبه.</li><li><strong>الإنترنت:</strong> يُستخدم حصراً في حالتين: مزامنة السحابة الاختيارية للمستخدم المسجل، والتحقق الدوري من وجود تحديثات للمحتوى الأكاديمي أو التطبيق.</li>',
+        sec6Title: '<i class="fa-solid fa-scale-balanced"></i> 6. التحديثات والتواصل الأكاديمي',
+        sec6Desc: 'يتم تحديث هذه السياسة دورياً مع أي تحسينات في البنية التقنية أو التوافق مع الأنظمة التعليمية. للدعم الفني والاستفسار الأكاديمي، يمكن التواصل مع إدارة المنظومة عبر مستودعنا الرسمي على GitHub / NuclearMindSys.'
+      },
+      en: {
+        pageTitle: "Privacy Policy — OFOQ Syrian Curriculum Platform",
+        backText: "Home",
+        langText: "العربية",
+        hdrTitle: "Privacy Policy & Student Data Security",
+        hdrSub: "OFOQ Platform & App — Comprehensive Syrian Curricula",
+        sumTitle: "Transparent Academic Privacy Commitment",
+        sumDesc: "OFOQ is built to provide an entirely safe, distraction-free educational environment: zero ads, zero commercial tracking, and zero data sales. 100% of your study progress, flashcards, and exam scores remain stored locally on your device. Cloud sync is strictly optional and protected with database-level Row-Level Security.",
+        sec1Title: '<i class="fa-solid fa-landmark"></i> 1. Who We Are & Platform Identity',
+        sec1Desc: 'OFOQ is a comprehensive Syrian educational platform developed and operated by NuclearMindSys. It delivers official Ministry of Education curriculum textbooks with verbatim exactness and modern interactive tools across all school stages, with prime specialization in the Scientific & Literary Baccalaureate (Grade 12) and 9th Grade Basic Education.',
+        sec2Title: '<i class="fa-solid fa-mobile-screen"></i> 2. Offline-First Architecture & Local Storage',
+        sec2List: '<li><strong>Local Device Ownership:</strong> All completed lessons, 3D active recall flashcard history, diagram quiz records, and mistake notebook entries reside safely inside an offline SQLite/Drift database on your device.</li><li><strong>Zero Commercial Telemetry:</strong> The application contains no advertising SDKs, behavioral tracking scripts, or profiling analytics.</li><li><strong>100% Offline Capability:</strong> Fully usable anywhere without requiring continuous internet access.</li>',
+        sec3Title: '<i class="fa-solid fa-cloud-arrow-up"></i> 3. Unified Optional Cloud Synchronization',
+        sec3List: '<li><strong>Opt-In Authentication:</strong> No mandatory account creation. Cloud sync is optional via Google OAuth for students wanting seamless multi-device continuity.</li><li><strong>Row-Level Security (RLS):</strong> Hosted on Supabase PostgreSQL over encrypted HTTPS, with strict RLS policies guaranteeing that no student or third party can view or alter another student’s study records.</li><li><strong>Instant Unlink:</strong> You can disconnect and purge cloud data anytime while preserving your local offline dataset.</li>',
+        sec4Title: '<i class="fa-solid fa-shield-virus"></i> 4. Student & Minor Privacy Protection',
+        sec4List: 'Because OFOQ serves school students across primary, middle, and secondary levels, we adhere strictly to child privacy and digital safety standards: no collection of sensitive personal data, no unmoderated public chats, and a focused learning atmosphere.',
+        sec5Title: '<i class="fa-solid fa-list-check"></i> 5. Device Permissions & Purpose',
+        sec5List: '<li><strong>Storage / Media:</strong> Required only to cache extracted high-resolution textbook diagrams and export offline database backups upon student command.</li><li><strong>Network:</strong> Solely used for optional cloud sync and checking for textbook content updates.</li>',
+        sec6Title: '<i class="fa-solid fa-scale-balanced"></i> 6. Updates & Academic Support',
+        sec6Desc: 'This policy is updated periodically to reflect system enhancements. For technical queries, reach out through our official GitHub portal at GitHub / NuclearMindSys.'
+      }
+    };
+
+    let currentLang = 'ar';
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      applyLanguage(currentLang);
+    }
+
+    function applyLanguage(lang) {
+      const html = document.getElementById('main-html');
+      const t = translations[lang];
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+      document.getElementById('page-title').innerText = t.pageTitle;
+      document.getElementById('back-text').innerText = t.backText;
+      document.getElementById('lang-text').innerText = t.langText;
+      document.getElementById('hdr-title').innerText = t.hdrTitle;
+      document.getElementById('hdr-sub').innerText = t.hdrSub;
+      document.getElementById('sum-title').innerText = t.sumTitle;
+      document.getElementById('sum-desc').innerText = t.sumDesc;
+      document.getElementById('sec1-title').innerHTML = t.sec1Title;
+      document.getElementById('sec1-desc').innerText = t.sec1Desc;
+      document.getElementById('sec2-title').innerHTML = t.sec2Title;
+      document.getElementById('sec2-list').innerHTML = t.sec2List;
+      document.getElementById('sec3-title').innerHTML = t.sec3Title;
+      document.getElementById('sec3-list').innerHTML = t.sec3List;
+      document.getElementById('sec4-title').innerHTML = t.sec4Title;
+      document.getElementById('sec4-desc').innerText = t.sec4Desc;
+      document.getElementById('sec5-title').innerHTML = t.sec5Title;
+      document.getElementById('sec5-list').innerHTML = t.sec5List;
+      document.getElementById('sec6-title').innerHTML = t.sec6Title;
+      document.getElementById('sec6-desc').innerText = t.sec6Desc;
+
+      const backIcon = document.getElementById('back-icon');
+      if (lang === 'en') {
+        backIcon.className = 'fa-solid fa-arrow-left';
+      } else {
+        backIcon.className = 'fa-solid fa-arrow-right';
+      }
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      const themeIcon = document.getElementById('theme-icon');
+      if (isDark) {
+        html.removeAttribute('data-theme');
+        themeIcon.className = 'fa-solid fa-moon';
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'fa-solid fa-sun';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="main-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">أُفُق (OFOQ) — المنصة الشاملة للمناهج السورية | البكالوريا العلمي والأدبي والتعليم الأساسي</title>
+  <meta name="description" content="تطبيق ومنصة أفق: المرجع الدراسي والتدريبي الأول للمناهج السورية لجميع الصفوف، بتخصص استثنائي للبكالوريا العلمي والأدبي والصف التاسع — نقل حرفي 100%، سلالم تصحيح وزارية، محاكي أتمتة، وأطلس مصورات، يعمل بالكامل دون إنترنت.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="منصة أفق (OFOQ) — المناهج السورية الشاملة">
+  <meta property="og:description" content="المرجع الدراسي والتفاعلي الأول لطلاب البكالوريا العلمي والأدبي والتاسع وكافة المراحل المدرسية في سوريا.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- KaTeX CSS for Pure Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #13523F;
+      --primary-dark: #0A3226;
+      --primary-light: #22734A;
+      --primary-gradient: linear-gradient(135deg, #0A3226 0%, #13523F 45%, #22734A 100%);
+      --accent-gold: #D97706;
+      --accent-gold-light: #F59E0B;
+      --accent-sky: #0284C7;
+      --accent-sky-light: #38BDF8;
+      --danger: #DC2626;
+      --bg: #F9FAF8;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #F0FDF4;
+      --text: #1E293B;
+      --text-muted: #64748B;
+      --border: #E2E8F0;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+      --badge-bg: rgba(19, 82, 63, 0.08);
+      --badge-border: rgba(19, 82, 63, 0.2);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+      --shadow-md: 0 10px 30px rgba(19, 82, 63, 0.08);
+      --shadow-lg: 0 20px 45px rgba(19, 82, 63, 0.16);
+    }
+
+    [data-theme="dark"] {
+      --primary: #22734A;
+      --primary-dark: #13523F;
+      --primary-light: #34D399;
+      --primary-gradient: linear-gradient(135deg, #061A14 0%, #0E3D2F 50%, #13523F 100%);
+      --accent-gold: #F59E0B;
+      --accent-gold-light: #FBBF24;
+      --accent-sky: #38BDF8;
+      --accent-sky-light: #7DD3FC;
+      --danger: #EF4444;
+      --bg: #091310;
+      --bg-card: #11221D;
+      --bg-card-hover: #16322B;
+      --text: #F1F5F9;
+      --text-muted: #94A3B8;
+      --border: #1E3830;
+      --nav-bg: rgba(9, 19, 16, 0.9);
+      --badge-bg: rgba(34, 115, 74, 0.15);
+      --badge-border: rgba(34, 115, 74, 0.35);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.45);
+      --shadow-lg: 0 20px 45px rgba(0,0,0,0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cairo', 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    [lang="en"] body { font-family: 'Inter', 'Cairo', sans-serif; }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-badge {
+      background: var(--accent-gold);
+      color: #FFFFFF;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-subtitle {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      display: block;
+      margin-top: -3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14.5px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      background: var(--badge-bg);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .lang-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--primary-gradient);
+      color: #FFFFFF;
+      padding: 95px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(245, 158, 11, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-container {
+      max-width: 980px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      backdrop-filter: blur(8px);
+      color: #FEF3C7;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5.5vw, 58px);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-title span {
+      color: #FCD34D;
+      text-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+    }
+
+    .hero-desc {
+      font-size: clamp(16px, 2.2vw, 20.5px);
+      opacity: 0.95;
+      line-height: 1.85;
+      max-width: 820px;
+      margin: 0 auto 36px;
+    }
+
+    .feature-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 42px;
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .btn-download-primary {
+      background: #FFFFFF;
+      color: #0A3226;
+      padding: 15px 34px;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .btn-download-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+      color: var(--primary-dark);
+    }
+
+    .btn-download-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      padding: 15px 32px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-download-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .version-tag {
+      font-size: 13.5px;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 85px 24px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 52px;
+    }
+
+    .section-tag {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      display: inline-block;
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      font-size: 16.5px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* Stages Explorer */
+    .stages-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .stage-btn {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stage-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stage-content { display: none; }
+    .stage-content.active { display: block; }
+
+    .stage-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .stage-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+    }
+
+    .stage-name {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .stage-subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .subj-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .subj-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .subj-icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .subj-title {
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .subj-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Baccalaureate 4 Pillars */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 22px;
+      padding: 32px 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      background: var(--bg-card-hover);
+    }
+
+    .pillar-badge {
+      position: absolute;
+      top: 20px;
+      inset-inline-end: 20px;
+      background: var(--badge-bg);
+      color: var(--primary);
+      border: 1px solid var(--badge-border);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .pillar-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(19, 82, 63, 0.1), rgba(217, 119, 6, 0.15));
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    .pillar-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .pillar-card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .pillar-points {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .pillar-points li {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .pillar-points li i { color: var(--accent-gold); font-size: 12px; }
+
+    /* Live Interactive Simulator */
+    .simulator-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sim-nav {
+      display: flex;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+
+    .sim-btn {
+      padding: 16px 24px;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .sim-btn.active {
+      color: var(--primary);
+      background: var(--bg-card);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    .sim-body { padding: 36px; }
+
+    .sim-panel { display: none; }
+    .sim-panel.active { display: block; }
+
+    /* MCQ Quiz Widget */
+    .quiz-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .timer-badge {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quiz-question {
+      font-size: 18.5px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .option-row {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .option-row:hover {
+      border-color: var(--primary);
+      background: var(--badge-bg);
+    }
+
+    .option-row.correct {
+      background: #DCFCE7 !important;
+      border-color: #16A34A !important;
+      color: #166534 !important;
+    }
+
+    .option-row.wrong {
+      background: #FEE2E2 !important;
+      border-color: #DC2626 !important;
+      color: #991B1B !important;
+    }
+
+    .quiz-rationale {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--primary);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .rationale-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    /* KaTeX Math Box */
+    .math-demo-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .math-formula-render {
+      font-size: 20px;
+      margin: 20px 0;
+      padding: 18px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      direction: ltr !important;
+    }
+
+    /* Diagram Interactive Callout Box */
+    .diagram-demo-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .diagram-graphic {
+      flex: 1;
+      min-width: 260px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .callout-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(19, 82, 63, 0.4);
+      margin: 8px;
+    }
+
+    .callout-dot:hover {
+      background: var(--accent-gold);
+      transform: scale(1.15);
+    }
+
+    /* 8 Features Grid */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+      background: var(--bg-card-hover);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--badge-bg);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+      border: 1px solid var(--badge-border);
+    }
+
+    .card h3 {
+      font-size: 18.5px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Privacy Banner */
+    .privacy-banner {
+      background: linear-gradient(135deg, rgba(19, 82, 63, 0.08), rgba(217, 119, 6, 0.08));
+      border: 1.5px solid var(--primary);
+      border-radius: 24px;
+      padding: 38px;
+      text-align: center;
+    }
+
+    .privacy-banner h3 {
+      font-size: 25px;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .privacy-banner p {
+      max-width: 800px;
+      margin: 0 auto 24px;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .btn-privacy {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 30px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .btn-privacy:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 55px 24px 32px;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 22px 0 32px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14.5px;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover { color: var(--primary); }
+
+    .copyright {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { padding: 65px 16px 55px; }
+      .stage-card { padding: 22px; }
+      .sim-body { padding: 20px; }
+      .sim-btn { padding: 12px 14px; font-size: 13.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="logo.svg" alt="OFOQ Logo" class="brand-logo">
+        <div>
+          <div class="brand-name">
+            <span>أُفُق</span>
+            <span class="brand-badge">OFOQ</span>
+          </div>
+          <span class="brand-subtitle" id="nav-tagline">المنصة الشاملة للمناهج السورية</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#stages" class="nav-link" id="nl-stages">المراحل التعليمية</a>
+        <a href="#pillars" class="nav-link" id="nl-pillars">ركائز البكالوريا</a>
+        <a href="#simulator" class="nav-link" id="nl-simulator">المحاكي التفاعلي</a>
+        <a href="#features" class="nav-link" id="nl-features">المزايا الأكاديمية</a>
+        <a href="#downloads" class="nav-link" id="nl-download">التنزيل</a>
+        <a href="privacy.html" class="nav-link" id="nl-privacy">الخصوصية</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLanguage()">
+          <i class="fa-solid fa-globe"></i>
+          <span id="lang-name">English</span>
+        </button>
+        <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="تبديل المظهر">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-container">
+      <div class="hero-badge" id="hero-badge">
+        <i class="fa-solid fa-medal"></i>
+        <span>المنظومة التعليمية السورية المرجعية المعتمدة لعام 2026</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        أفقك نحو <span>التفوق والتميز الدراسي</span><br>من الصف الأول حتى البكالوريا
+      </h1>
+
+      <p class="hero-desc" id="hero-desc">
+        المرجع الأكاديمي الرقمي الأول لجميع المناهج السورية بنقل حرفي 100% مطابق لكتب وزارة التربية، وسلالم التصحيح الوزارية الدقيقة، ومحاكي الامتحانات المؤتمتة، وأطلس المصورات التفاعلي — يعمل بالكامل دون إنترنت وبياناتك على جهازك.
+      </p>
+
+      <div class="feature-pills">
+        <div class="pill"><i class="fa-solid fa-scroll"></i> <span id="p-law">نقل حرفي 100% بدون تلخيص</span></div>
+        <div class="pill"><i class="fa-solid fa-graduation-cap"></i> <span id="p-bac">تخصص فائق بالبكالوريا والتاسع</span></div>
+        <div class="pill"><i class="fa-solid fa-wifi-slash"></i> <span id="p-off">يعمل 100% أوفلاين دون إنترنت</span></div>
+        <div class="pill"><i class="fa-solid fa-shield-check"></i> <span id="p-free">مجاني بالكامل وبدون إعلانات</span></div>
+        <div class="pill"><i class="fa-solid fa-language"></i> <span id="p-bi">عربي أصيل / إنجليزي LTR</span></div>
+      </div>
+
+      <div class="hero-cta" id="downloads">
+        <a href="https://github.com/NuclearMindSys/OFOQ/releases/latest/download/OFOQ-Android-1.0.0.apk" class="btn-download-primary" id="btn-and">
+          <i class="fa-brands fa-android" style="font-size: 24px;"></i>
+          <div style="text-align: start;">
+            <div style="font-size: 15px; font-weight: 800;" id="dl-and-title">تحميل للأندرويد</div>
+            <div style="font-size: 11px; opacity: 0.8;" id="dl-and-sub">ملف تثبيت مباشر APK</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/NuclearMindSys/OFOQ/releases/latest/download/OFOQ-Windows-1.0.0.zip" class="btn-download-secondary" id="btn-win">
+          <i class="fa-brands fa-windows" style="font-size: 24px;"></i>
+          <div style="text-align: start;">
+            <div style="font-size: 15px; font-weight: 800;" id="dl-win-title">تحميل للويندوز</div>
+            <div style="font-size: 11px; opacity: 0.8;" id="dl-win-sub">حزمة محمولة مضغوطة ZIP</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="version-tag" id="version-tag">
+        <i class="fa-solid fa-code-commit"></i>
+        <span id="version-text">الإصدار المرجعي الموحد: v1.0.0 · جاهز للتحميل المباشر</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Syrian Educational Stages Hub -->
+  <section id="stages">
+    <div class="section-header">
+      <span class="section-tag" id="stages-tag">الهيكلية التعليمية الشاملة</span>
+      <h2 class="section-title" id="stages-title">تغطية متكاملة لجميع صفوف المنهاج السوري</h2>
+      <p class="section-desc" id="stages-desc">صُمم «أفق» ليرافق الطالب السوري عبر كافة محطات مسيرته التعليمية، من بواكير التأسيس في الحلقة الأولى وحتى منصات التتويج في الشهادة الثانوية العامة.</p>
+    </div>
+
+    <div class="stages-tabs">
+      <button class="stage-btn active" onclick="switchStage('bac')"><i class="fa-solid fa-award"></i> <span id="st-btn-bac">الشهادة الثانوية (البكالوريا)</span></button>
+      <button class="stage-btn" onclick="switchStage('nine')"><i class="fa-solid fa-certificate"></i> <span id="st-btn-nine">شهادة التعليم الأساسي (التاسع)</span></button>
+      <button class="stage-btn" onclick="switchStage('prep')"><i class="fa-solid fa-school"></i> <span id="st-btn-prep">المرحلة الإعدادية (7 - 8)</span></button>
+      <button class="stage-btn" onclick="switchStage('prim')"><i class="fa-solid fa-book-open-reader"></i> <span id="st-btn-prim">المرحلة الابتدائية (1 - 6)</span></button>
+    </div>
+
+    <!-- Stage 1: Baccalaureate -->
+    <div class="stage-content active" id="stage-bac">
+      <div class="stage-card">
+        <div class="stage-header-row">
+          <div>
+            <div class="stage-name" id="s1-name">الثالث الثانوي العام — الفرعان العلمي والأدبي (البكالوريا)</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 4px;" id="s1-sub">أعلى درجات التخصص، بنوك الأسئلة المؤتمتة، تفكيك السلالم الوزارية، والتثليث المصدري الصارم.</div>
+          </div>
+          <span style="background: var(--badge-bg); color: var(--primary); padding: 6px 16px; border-radius: 999px; font-weight: 800; font-size: 13px;" id="s1-badge">قمة المنهاج السوري</span>
+        </div>
+
+        <div class="stage-subjects-grid">
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+            <div class="subj-title" id="sb-m-t">الرياضيات (600 علامة)</div>
+            <div class="subj-desc" id="sb-m-d">تثليث مصدري ثلاثي (كتاب الطالب + دليل المعلم + أ. برهان)، محرك KaTeX النقي، إضاءة أفق لشرح المبرهنات، وتصنيف الأنماط الأربعة للاستقراء.</div>
+          </div>
+
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-dna"></i></div>
+            <div class="subj-title" id="sb-b-t">علم الأحياء (300 علامة)</div>
+            <div class="subj-desc" id="sb-b-d">39 درساً ومراجعة بنقل حرفي، أطلس مصورات عالي الدقة، واختبار الأنماط الوزارية الثمانية (موقع، وظيفة، نتيجة، تعليل، ترتيب، مقارنة، مصطلح، أتمتة).</div>
+          </div>
+
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-atom"></i></div>
+            <div class="subj-title" id="sb-pc-t">الفيزياء والكيمياء (600 علامة)</div>
+            <div class="subj-desc" id="sb-pc-d">استنتاجات القوانين النظرية، حل المسائل العامة وفق السلالم النموذجية، وبنوك أتمتة شاملة للمفاهيم والوحدات.</div>
+          </div>
+
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-earth-americas"></i></div>
+            <div class="subj-title" id="sb-en-t">اللغة الإنجليزية (Emar English)</div>
+            <div class="subj-desc" id="sb-en-d">12 وحدة كاملة، بنك التعبير الوزاري بنموذجين (قياسي ومتقدم مع الترجمة)، مصفوفة الاشتقاقات، والقواعد الوزارية.</div>
+          </div>
+
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+            <div class="subj-title" id="sb-ar-t">اللغة العربية والفرع الأدبي</div>
+            <div class="subj-desc" id="sb-ar-d">شرح القصائد الأدبية والبلاغة والنحو، فلسفة وقضايا الفكر، التاريخ والحضارة، والخرائط الجغرافية التفاعلية.</div>
+          </div>
+
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-flag"></i></div>
+            <div class="subj-title" id="sb-ot-t">التربية الوطنية والدينية واللغات</div>
+            <div class="subj-desc" id="sb-ot-d">مفاهيم الدستور والقضايا الوطنية، التربية الدينية الإسلامية والمسيحية، واللغة الفرنسية مع بنوك الأتمتة.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2: 9th Grade -->
+    <div class="stage-content" id="stage-nine">
+      <div class="stage-card">
+        <div class="stage-header-row">
+          <div>
+            <div class="stage-name" id="s2-name">شهادة التعليم الأساسي — الصف التاسع (الإعدادية)</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 4px;" id="s2-sub">بنوك أسئلة الدورات الامتحانية، مكثفات الرياضيات والعلوم، وتدريب الأتمتة الوزارية.</div>
+          </div>
+          <span style="background: #FEF3C7; color: #92400E; padding: 6px 16px; border-radius: 999px; font-weight: 800; font-size: 13px;" id="s2-badge">شهادة عامة وزارية</span>
+        </div>
+
+        <div class="stage-subjects-grid">
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="subj-title" id="s2-1-t">الرياضيات والمنطق الحسابي</div>
+            <div class="subj-desc" id="s2-1-d">الجبر والهندسة، خواص المثلثات، التناسب، الدائرة، والمسائل الامتحانية الشاملة مع سلالم التصحيح.</div>
+          </div>
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-flask"></i></div>
+            <div class="subj-title" id="s2-2-t">العلوم العامة والصحة والفيزياء</div>
+            <div class="subj-desc" id="s2-2-d">أجهزة جسم الإنسان، الحواس، التفاعلات الكيميائية، والكهرباء والمغناطيسية مع مصورات توضيحية.</div>
+          </div>
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-book"></i></div>
+            <div class="subj-title" id="s2-3-t">اللغة العربية والدراسات الاجتماعية</div>
+            <div class="subj-desc" id="s2-3-d">قواعد النحو والإملاء، النصوص الأدبية المقررة، الجغرافيا، التاريخ، والتربية الوطنية.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3: Prep -->
+    <div class="stage-content" id="stage-prep">
+      <div class="stage-card">
+        <div class="stage-header-row">
+          <div>
+            <div class="stage-name" id="s3-name">المرحلة الإعدادية — الصف السابع والثامن</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 4px;" id="s3-sub">بناء المنهجية العلمية والتحليلية، وترسيخ القواعد الأساسية للانتقال إلى مرحلة الشهادات.</div>
+          </div>
+          <span style="background: rgba(2, 132, 199, 0.1); color: var(--accent-sky); padding: 6px 16px; border-radius: 999px; font-weight: 800; font-size: 13px;" id="s3-badge">مرحلة التعميق والتحليل</span>
+        </div>
+
+        <div class="stage-subjects-grid">
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-shapes"></i></div>
+            <div class="subj-title" id="s3-1-t">الرياضيات الأساسية وتطبيقاتها</div>
+            <div class="subj-desc" id="s3-1-d">الأعداد الصحيحة والعادية، حل المعادلات من الدرجة الأولى، والمفاهيم الهندسية الأساسية.</div>
+          </div>
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-seedling"></i></div>
+            <div class="subj-title" id="s3-2-t">العلوم العامة وعالم الطبيعة</div>
+            <div class="subj-desc" id="s3-2-d">مبادئ علم الحياة والبيئة، المادة وتحولاتها، والطاقة وتطبيقاتها في الحياة اليومية.</div>
+          </div>
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-language"></i></div>
+            <div class="subj-title" id="s3-3-t">اللغات العربية والإنجليزية والفرنسية</div>
+            <div class="subj-desc" id="s3-3-d">تطوير مهارات القراءة والاستماع وبناء الجملة الصحيحة وفق المناهج الحديثة المطورة.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 4: Primary -->
+    <div class="stage-content" id="stage-prim">
+      <div class="stage-card">
+        <div class="stage-header-row">
+          <div>
+            <div class="stage-name" id="s4-name">المرحلة الابتدائية — الصفوف من 1 إلى 6</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 4px;" id="s4-sub">التأسيس القرائي والحسابي الممنهج، واجهات ملونة وتفاعلية، وخطوط عربية مريحة لعين الطفل.</div>
+          </div>
+          <span style="background: #DCFCE7; color: #166534; padding: 6px 16px; border-radius: 999px; font-weight: 800; font-size: 13px;" id="s4-badge">التأسيس والنشأة الأولى</span>
+        </div>
+
+        <div class="stage-subjects-grid">
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-pen-nib"></i></div>
+            <div class="subj-title" id="s4-1-t">لغتي العربية السليمة</div>
+            <div class="subj-desc" id="s4-1-d">الحروف، أصوات المد، تشكيل الكلمات، نصوص القراءة المشكولة، والتعبير الكتابي المبسط.</div>
+          </div>
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-arrow-up-1-9"></i></div>
+            <div class="subj-title" id="s4-2-t">الحساب الذهني والرياضيات المبسطة</div>
+            <div class="subj-desc" id="s4-2-d">العمليات الحسابية الأساسية، الأشكال الهندسية الملونة، وحل المسائل الحياتية المحفزة للتفكير.</div>
+          </div>
+          <div class="subj-card">
+            <div class="subj-icon"><i class="fa-solid fa-earth-asia"></i></div>
+            <div class="subj-title" id="s4-3-t">التربية الاجتماعية والعلوم واللغات</div>
+            <div class="subj-desc" id="s4-3-d">استكشاف البيئة، التربية الأخلاقية والوطنية، والمبادئ الأولى للغتين الإنجليزية والفرنسية.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 Baccalaureate Pillars -->
+  <section id="pillars" style="background: var(--bg); padding-top: 40px;">
+    <div class="section-header">
+      <span class="section-tag" id="pil-tag">العمق الأكاديمي الحصري</span>
+      <h2 class="section-title" id="pil-title">ركائز البكالوريا التخصصية في منصة «أفق»</h2>
+      <p class="section-desc" id="pil-desc">القوانين المنهجية التي تضمن للطالب السوري التفوق الكامل، وامتلاك أدوات التحصيل الحرفي في امتحانات الشهادة الثانوية.</p>
+    </div>
+
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <span class="pillar-badge">الرياضيات 600</span>
+        <div class="pillar-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+        <h3 id="pil-1-t">التثليث المصدري الصارم</h3>
+        <p id="pil-1-d">كل درس وتمرين في الرياضيات يستند لثلاثة مراجع متطابقة: كتاب الطالب الوزاري، دليل المعلم الرسمي، ونوطة الأستاذ برهان، مع صياغة KaTeX اللاتخي النقي بدون رموز عارية.</p>
+        <ul class="pillar-points">
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-1-p1">إضاءة أفق لشرح المبرهنات التفاعلي</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-1-p2">نوافذ خلاصات وقواعد أ. برهان</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-1-p3">طي الحلول افتراضياً لحل التمرين أولاً</span></li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-badge">علم الأحياء 300</span>
+        <div class="pillar-icon"><i class="fa-solid fa-microscope"></i></div>
+        <h3 id="pil-2-t">الأنماط الوزارية الثمانية والأطلس</h3>
+        <p id="pil-2-d">تفكيك نصوص كتاب علم الأحياء بالكامل وفق أسئلة السلالم الوزارية المعتمدة، مع أطلس المصورات عالي الدقة واختبار تسمية الأجزاء التفاعلي.</p>
+        <ul class="pillar-points">
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-2-p1">8 أنماط: موقع، وظيفة، نتيجة، تعليل...</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-2-p2">تسمية تفاعلية لمسميات الأشكال والمصورات</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-2-p3">تمييز الكلمات المفتاحية لسلالم التصحيح</span></li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-badge">إيمار إنجليزي</span>
+        <div class="pillar-icon"><i class="fa-solid fa-book-journal-whills"></i></div>
+        <h3 id="pil-3-t">بنك التعبير المزدوج والاشتقاقات</h3>
+        <p id="pil-3-d">تغطية شاملة لمنهاج Emar English Grade 12: نماذج التعبير بنموذجين متقنين (قياسي ومتقدم مترجم بدقة)، ومصفوفة الاشتقاقات مع وضع "اختبر نفسك".</p>
+        <ul class="pillar-points">
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-3-p1">مواضيع التعبير القياسية والأكاديمية</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-3-p2">مصفوفة اشتقاق الكلمات مع معانيها</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-3-p3">توجيهات دليل المعلم المعتمدة</span></li>
+        </ul>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-badge">الامتحان المؤتمت</span>
+        <div class="pillar-icon"><i class="fa-solid fa-stopwatch-20"></i></div>
+        <h3 id="pil-4-t">محاكي الأتمتة الوزاري الجديد</h3>
+        <p id="pil-4-d">نظام محاكاة مطابق لورقة الفحص المؤتمتة الجديدة في سوريا: مؤقت تنازلي حقيقي، ترتيب خيارات عشوائي، تصحيح فوري وشروحات تفصيلية لجميع الخيارات.</p>
+        <ul class="pillar-points">
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-4-p1">احتساب العلامة من مجموع المادة الوزاري</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-4-p2">ترحيل الأخطاء تلقائياً لدفتر المراجعة</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span id="pil-4-p3">وضع التدريب الفوري ووضع الامتحان الحقيقي</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Interactive Simulator Hub -->
+  <section id="simulator">
+    <div class="section-header">
+      <span class="section-tag" id="sim-tag">تجربة تفاعلية مباشرة</span>
+      <h2 class="section-title" id="sim-title">جرّب بيئة عمل «أُفُق» الآن في متصفحك</h2>
+      <p class="section-desc" id="sim-desc">اختبر عينة واقعية من نماذج الأسئلة المؤتمتة، تفكيك المصورات العلمية، وشرح المبرهنات الرياضية كما تظهر للطالب داخل التطبيق.</p>
+    </div>
+
+    <div class="simulator-box">
+      <div class="sim-nav">
+        <button class="sim-btn active" onclick="switchSim('mcq')"><i class="fa-solid fa-stopwatch"></i> <span id="sim-btn-1">محاكي الامتحان المؤتمت</span></button>
+        <button class="sim-btn" onclick="switchSim('math')"><i class="fa-solid fa-lightbulb"></i> <span id="sim-btn-2">إضاءة أفق لشرح المبرهنات (KaTeX)</span></button>
+        <button class="sim-btn" onclick="switchSim('diagram')"><i class="fa-solid fa-image"></i> <span id="sim-btn-3">اختبار المصورات وتسمية الأجزاء</span></button>
+      </div>
+
+      <div class="sim-body">
+        <!-- Panel 1: MCQ Simulator -->
+        <div class="sim-panel active" id="sim-panel-mcq">
+          <div class="quiz-card">
+            <div class="quiz-header">
+              <div>
+                <span style="font-size: 13px; color: var(--primary); font-weight: 800;" id="q-sub">علم الأحياء — الثالث الثانوي العلمي · التنسيق العصبي</span>
+                <div style="font-size: 12px; color: var(--text-muted);" id="q-meta">سؤال مؤتمت وزاري دورة نموذجية · النمط: موقع ووظيفة الخلية العصبية</div>
+              </div>
+              <div class="timer-badge">
+                <i class="fa-regular fa-clock"></i>
+                <span id="quiz-timer">00:28 ثانية</span>
+              </div>
+            </div>
+
+            <div class="quiz-question" id="quiz-q-text">
+              سؤال: أين تقع أجسام العصبونات أحادية القطب في الجهاز العصبي عند الإنسان، وما وظيفتها الرئيسية؟
+            </div>
+
+            <div class="quiz-options">
+              <div class="option-row" onclick="checkAnswer(this, false)">
+                <span>أ) في المادة الرمادية للقرن الأمامي للنخاع الشوكي، وتعد عصبونات محركة ناقلة للأوامر.</span>
+              </div>
+              <div class="option-row" onclick="checkAnswer(this, true)">
+                <span>ب) في العقد الشوكية على الجذر الخلفي الحسي للعصب الشوكي، وتعد عصبونات حسية.</span>
+              </div>
+              <div class="option-row" onclick="checkAnswer(this, false)">
+                <span>ج) في القشرة المخية في الباحة المحركة، وتتحكم بالحركات الإرادية.</span>
+              </div>
+              <div class="option-row" onclick="checkAnswer(this, false)">
+                <span>د) في قشرة المخيخ في طبقة خلايا بركنج، وتضبط التوازن الحركي الدقيق.</span>
+              </div>
+            </div>
+
+            <div class="quiz-rationale" id="quiz-rationale">
+              <div class="rationale-title"><i class="fa-solid fa-circle-check"></i> <span id="rat-title">التعليل وسلم التصحيح الوزاري المعتمد:</span></div>
+              <p style="font-size: 14.5px; color: var(--text);" id="rat-desc">
+                الإجابة الصحيحة هي <strong>(ب)</strong>: تقع أجسام العصبونات أحادية القطب حصراً في <strong>العقد الشوكية</strong> الكائنة على الجذر الخلفي الحسي للأعصاب الشوكية. ولها استطالة قطبية واحدة تتفرع بعد خروجها إلى فرعين: فرع محيطي ينتهي بمستقبل حسي، وفرع مركزي يدخل النخاع الشوكي (تعد عصبونات حسية جالبة).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Math KaTeX Lightbulb -->
+        <div class="sim-panel" id="sim-panel-math">
+          <div class="math-demo-box">
+            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(2, 132, 199, 0.1); color: var(--accent-sky); padding: 5px 16px; border-radius: 999px; font-weight: 800; font-size: 13px; margin-bottom: 12px;" id="m-badge">
+              <i class="fa-solid fa-lightbulb"></i> إضاءة أفق لشرح المبرهنات التفاعلية
+            </div>
+            <h3 style="font-size: 21px; font-weight: 900; margin-bottom: 8px;" id="m-title">مبرهنة الإحاطة (الحصر) في النهايات — الرياضيات</h3>
+            <p style="font-size: 15px; color: var(--text-muted); max-width: 740px; margin: 0 auto 16px;" id="m-desc">
+              إذا كان التابع محصوراً بين تابعين ينتهيان إلى نفس النهاية الحقيقية $L$ عند جوار نقطة معينة، فإن التابع المحصور بينهما يُجبر على الانتهاء إلى نفس النهاية $L$.
+            </p>
+
+            <div class="math-formula-render">
+              $$\text{If } g(x) \le f(x) \le h(x) \quad \text{and} \quad \lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L \implies \lim_{x \to a} f(x) = L$$
+            </div>
+
+            <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; text-align: start; max-width: 720px; margin: 0 auto; font-size: 14.5px; line-height: 1.75;" id="m-intuition">
+              <strong style="color: var(--primary); display: block; margin-bottom: 6px;"><i class="fa-solid fa-wand-magic-sparkles"></i> تبسيط المبرهنة بلغة تفاعلية ذكية (إضاءة أفق):</strong>
+              تخيل شرطيي مرور ($g(x)$ و $h(x)$) يحيطان بسيارة ($f(x)$) من الجانبين ويسيران بها نحو بوابة خروج محددة ($L$)؛ مهما حاولت السيارة الانحراف، فإن تضييق المسار المحكم يُجبرها حتماً على العبور من نفس البوابة $L$ دون أي احتمال آخر!
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Diagram Quiz -->
+        <div class="sim-panel" id="sim-panel-diagram">
+          <div class="diagram-demo-box">
+            <div class="diagram-graphic">
+              <i class="fa-solid fa-brain" style="font-size: 80px; color: var(--primary); margin-bottom: 14px;"></i>
+              <div style="font-size: 16px; font-weight: 800; color: var(--text);" id="diag-fig-title">مقطع طولي في الدماغ البشري — أطلس أفق</div>
+              <div style="margin-top: 14px;">
+                <span class="callout-dot" onclick="revealCallout(1, 'المخ (نصفا الكرتين المخيتين والباحات الحسية والمحركة)')">1</span>
+                <span class="callout-dot" onclick="revealCallout(2, 'المخيخ (ضبط التوازن الحركي العضلي وتناسق الفعاليات)')">2</span>
+                <span class="callout-dot" onclick="revealCallout(3, 'البصلة السيسائية (المراكز الانعكاسية الحيوية: التنفس والقلب)')">3</span>
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;" id="diag-hint">انقر على الرقم لإظهار المسمى وسلم التصحيح</div>
+            </div>
+
+            <div style="flex: 1.2; min-width: 280px; text-align: start;">
+              <h4 style="font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 10px;" id="diag-box-title">سلم تسميات المصورات الوزاري:</h4>
+              <div id="callout-result" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; font-size: 15px; color: var(--text);">
+                انقر على أحد الأرقام (1 أو 2 أو 3) لاختبار نفسك في تسمية أجزاء الشكل ووظيفة كل منها بدقة متناهية.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 Architecture Features -->
+  <section id="features" style="padding-top: 0;">
+    <div class="section-header">
+      <span class="section-tag" id="arch-tag">البنية البرمجية والتعليمية</span>
+      <h2 class="section-title" id="arch-title">أحدث التقنيات لخدمة التحصيل الدراسي</h2>
+      <p class="section-desc" id="arch-desc">بُنيت منصة «أفق» وفق معايير Flutter Clean Architecture مع تخزين محلي كامل لحماية استقرار الطالب وانعدام أي تشتيت رقمي.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-clone"></i></div>
+        <h3 id="ft1-t">تسميع ذكي 3D</h3>
+        <p id="ft1-d">بطاقات استذكار نشط ثلاثية الأبعاد تنقلب بلمسة واحدة، مبرمجة لترسيخ المفاهيم ونقلها إلى الذاكرة طويلة المدى.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+        <h3 id="ft2-t">تكرار متباعد SM-2</h3>
+        <p id="ft2-d">خوارزمية ذكية تحسب منحنى النسيان وتعيد جدولة الأسئلة الصعبة في الموعد المثالي لتثبيتها في الذهن.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+        <h3 id="ft3-t">دفتر الأخطاء وتصفيرها</h3>
+        <p id="ft3-d">تجميع آلي لكل سؤال أخطأ فيه الطالب في أي وضع، مع وضع تدريب مكثف لتصفير الثغرات وضمان العلامة التامة.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h3 id="ft4-t">بحث فوري أوفلاين (FTS)</h3>
+        <p id="ft4-d">محرك بحث محلي فائق السرعة يبحث في ملايين الكلمات والعناوين والأسئلة والمصطلحات والسلالم خلال أجزاء من الثانية.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+        <h3 id="ft5-t">مزامنة سحابية موحدة</h3>
+        <p id="ft5-d">مزامنة اختيارية بحساب Google موحد عبر Supabase مشفر ومحمي بسياسات RLS لمتابعة دراستك بين الهاتف والكمبيوتر.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+        <h3 id="ft6-t">صياغة KaTeX النقية</h3>
+        <p id="ft6-d">محرك طباعي رياضي فائق الدقة يضمن خلو المعادلات من أي رموز مشوهة أو أحرف عارية وبمطابقة تامة لطباعة الكتب.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-share-nodes"></i></div>
+        <h3 id="ft7-t">مشاركة وتصدير البطاقات</h3>
+        <p id="ft7-d">إمكانية تصدير بطاقات الدروس والملاحظات والأسئلة كصور عالية الدقة أو مستندات PDF منسقة ومعدة للمذاكرة الجماعية.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+        <h3 id="ft8-t">بنية Drift/SQLite المحلية</h3>
+        <p id="ft8-d">يعمل التطبيق بكفاءة متناهية واستهلاك بطارية معدوم، مع استقلالية تامة عن الاتصال بالإنترنت.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Callout Banner -->
+  <section style="padding-top: 0;">
+    <div class="privacy-banner">
+      <h3 id="pb-title"><i class="fa-solid fa-shield-halved"></i> بيئة دراسية هادئة وآمنة تحترم خصوصية الطالب بالكامل</h3>
+      <p id="pb-desc">
+        نحن ملتزمون بتوفير مساحة دراسية تركز بنسبة 100% على التحصيل العلمي دون أي إعلانات تجارية، أو برمجيات تتبع، أو جمع بيانات. كافة سجلات تقدمك الدراسي تبقى ملكاً خاصاً لك على جهازك، ويمكنك في أي وقت تفعيل المزامنة السحابية بحساب Google موحد ومحمي بنظام عزل أمان السجلات الصارم.
+      </p>
+      <a href="privacy.html" class="btn-privacy" id="pb-btn">
+        <span>قراءة سياسة الخصوصية وأمان البيانات كاملة</span>
+        <i class="fa-solid fa-arrow-left" id="pb-icon"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <img src="logo.svg" alt="OFOQ Logo" class="footer-logo">
+      <div style="font-weight: 900; font-size: 22px; color: var(--primary);">أُفُق · OFOQ</div>
+      <p style="font-size: 14px; color: var(--text-muted); margin-top: 4px;" id="ft-tagline">المنظومة المرجعية والتفاعلية الشاملة للمناهج السورية</p>
+
+      <div class="footer-links">
+        <a href="#stages" id="fl-st">المراحل التعليمية</a>
+        <a href="#pillars" id="fl-pil">ركائز البكالوريا</a>
+        <a href="#simulator" id="fl-sim">المحاكي التفاعلي</a>
+        <a href="#features" id="fl-feat">المزايا</a>
+        <a href="#downloads" id="fl-dl">التنزيلات</a>
+        <a href="privacy.html" id="fl-priv">سياسة الخصوصية</a>
+        <a href="https://github.com/NuclearMindSys/OFOQ" target="_blank" rel="noopener">مستودع أفق الأكاديمي</a>
+        <a href="https://github.com/NuclearMindSys" target="_blank" rel="noopener">NuclearMindSys</a>
+      </div>
+
+      <p class="copyright">
+        منصة وتطبيق أفق (OFOQ) © 2026 · تطوير وتشغيل <a href="https://github.com/NuclearMindSys" target="_blank" rel="noopener" style="color: var(--primary); text-decoration: none; font-weight: 800;">NuclearMindSys</a> · جميع الحقوق محفوظة لوزارة التربية السورية والمنظومة.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // KaTeX Autorender on load
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body);
+      }
+    });
+
+    // Stage Switcher
+    function switchStage(stageId) {
+      document.querySelectorAll('.stage-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.stage-content').forEach(c => c.classList.remove('active'));
+
+      if (stageId === 'bac') {
+        document.querySelectorAll('.stage-btn')[0].classList.add('active');
+        document.getElementById('stage-bac').classList.add('active');
+      } else if (stageId === 'nine') {
+        document.querySelectorAll('.stage-btn')[1].classList.add('active');
+        document.getElementById('stage-nine').classList.add('active');
+      } else if (stageId === 'prep') {
+        document.querySelectorAll('.stage-btn')[2].classList.add('active');
+        document.getElementById('stage-prep').classList.add('active');
+      } else {
+        document.querySelectorAll('.stage-btn')[3].classList.add('active');
+        document.getElementById('stage-prim').classList.add('active');
+      }
+    }
+
+    // Simulator Tab Switcher
+    function switchSim(simId) {
+      document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.sim-panel').forEach(p => p.classList.remove('active'));
+
+      if (simId === 'mcq') {
+        document.querySelectorAll('.sim-btn')[0].classList.add('active');
+        document.getElementById('sim-panel-mcq').classList.add('active');
+      } else if (simId === 'math') {
+        document.querySelectorAll('.sim-btn')[1].classList.add('active');
+        document.getElementById('sim-panel-math').classList.add('active');
+      } else {
+        document.querySelectorAll('.sim-btn')[2].classList.add('active');
+        document.getElementById('sim-panel-diagram').classList.add('active');
+      }
+    }
+
+    // Quiz Answer Verification
+    function checkAnswer(el, isCorrect) {
+      const options = document.querySelectorAll('.option-row');
+      options.forEach(opt => opt.classList.remove('correct', 'wrong'));
+
+      if (isCorrect) {
+        el.classList.add('correct');
+      } else {
+        el.classList.add('wrong');
+        options[1].classList.add('correct'); // Highlight the right answer
+      }
+      document.getElementById('quiz-rationale').style.display = 'block';
+    }
+
+    // Diagram Callout Viewer
+    function revealCallout(num, text) {
+      const box = document.getElementById('callout-result');
+      box.innerHTML = `<strong>الرقم (${num}):</strong> ${text}`;
+      box.style.borderColor = 'var(--primary)';
+      box.style.background = 'var(--bg-card-hover)';
+    }
+
+    // Theme Toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      const themeIcon = document.getElementById('theme-icon');
+      if (isDark) {
+        html.removeAttribute('data-theme');
+        themeIcon.className = 'fa-solid fa-moon';
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        themeIcon.className = 'fa-solid fa-sun';
+      }
+    }
+
+    // Internationalization (i18n)
+    const i18n = {
+      ar: {
+        metaTitle: "أُفُق (OFOQ) — المنصة الشاملة للمناهج السورية | البكالوريا العلمي والأدبي والتعليم الأساسي",
+        navTagline: "المنصة الشاملة للمناهج السورية",
+        nlStages: "المراحل التعليمية",
+        nlPillars: "ركائز البكالوريا",
+        nlSimulator: "المحاكي التفاعلي",
+        nlFeatures: "المزايا الأكاديمية",
+        nlDownload: "التنزيل",
+        nlPrivacy: "الخصوصية",
+        langName: "English",
+        heroBadge: "المنظومة التعليمية السورية المرجعية المعتمدة لعام 2026",
+        heroTitle: "أفقك نحو <span>التفوق والتميز الدراسي</span><br>من الصف الأول حتى البكالوريا",
+        heroDesc: "المرجع الأكاديمي الرقمي الأول لجميع المناهج السورية بنقل حرفي 100% مطابق لكتب وزارة التربية، وسلالم التصحيح الوزارية الدقيقة، ومحاكي الامتحانات المؤتمتة، وأطلس المصورات التفاعلي — يعمل بالكامل دون إنترنت وبياناتك على جهازك.",
+        pLaw: "نقل حرفي 100% بدون تلخيص",
+        pBac: "تخصص فائق بالبكالوريا والتاسع",
+        pOff: "يعمل 100% أوفلاين دون إنترنت",
+        pFree: "مجاني بالكامل وبدون إعلانات",
+        pBi: "عربي أصيل / إنجليزي LTR",
+        dlAndTitle: "تحميل للأندرويد",
+        dlAndSub: "ملف تثبيت مباشر APK",
+        dlWinTitle: "تحميل للويندوز",
+        dlWinSub: "حزمة محمولة مضغوطة ZIP",
+        versionText: "الإصدار المرجعي الموحد: v1.0.0 · جاهز للتحميل المباشر",
+        stagesTag: "الهيكلية التعليمية الشاملة",
+        stagesTitle: "تغطية متكاملة لجميع صفوف المنهاج السوري",
+        stagesDesc: "صُمم «أفق» ليرافق الطالب السوري عبر كافة محطات مسيرته التعليمية، من بواكير التأسيس في الحلقة الأولى وحتى منصات التتويج في الشهادة الثانوية العامة.",
+        stBtnBac: "الشهادة الثانوية (البكالوريا)",
+        stBtnNine: "شهادة التعليم الأساسي (التاسع)",
+        stBtnPrep: "المرحلة الإعدادية (7 - 8)",
+        stBtnPrim: "المرحلة الابتدائية (1 - 6)",
+        pilTag: "العمق الأكاديمي الحصري",
+        pilTitle: "ركائز البكالوريا التخصصية في منصة «أفق»",
+        pilDesc: "القوانين المنهجية التي تضمن للطالب السوري التفوق الكامل، وامتلاك أدوات التحصيل الحرفي في امتحانات الشهادة الثانوية.",
+        simTag: "تجربة تفاعلية مباشرة",
+        simTitle: "جرّب بيئة عمل «أُفُق» الآن في متصفحك",
+        simDesc: "اختبر عينة واقعية من نماذج الأسئلة المؤتمتة، تفكيك المصورات العلمية، وشرح المبرهنات الرياضية كما تظهر للطالب داخل التطبيق.",
+        simBtn1: "محاكي الامتحان المؤتمت",
+        simBtn2: "إضاءة أفق لشرح المبرهنات (KaTeX)",
+        simBtn3: "اختبار المصورات وتسمية الأجزاء",
+        pbTitle: "بيئة دراسية هادئة وآمنة تحترم خصوصية الطالب بالكامل",
+        pbDesc: "نحن ملتزمون بتوفير مساحة دراسية تركز بنسبة 100% على التحصيل العلمي دون أي إعلانات تجارية، أو برمجيات تتبع، أو جمع بيانات. كافة سجلات تقدمك الدراسي تبقى ملكاً خاصاً لك على جهازك، ويمكنك في أي وقت تفعيل المزامنة السحابية بحساب Google موحد ومحمي بنظام عزل أمان السجلات الصارم.",
+        pbBtn: "قراءة سياسة الخصوصية وأمان البيانات كاملة",
+        ftTagline: "المنظومة المرجعية والتفاعلية الشاملة للمناهج السورية"
+      },
+      en: {
+        metaTitle: "OFOQ — Syrian Curriculum Platform | Scientific & Literary Baccalaureate & Basic Education",
+        navTagline: "Syrian Comprehensive Educational Platform",
+        nlStages: "Educational Stages",
+        nlPillars: "Baccalaureate Pillars",
+        nlSimulator: "Simulator",
+        nlFeatures: "Academic Features",
+        nlDownload: "Download",
+        nlPrivacy: "Privacy Policy",
+        langName: "العربية",
+        heroBadge: "Official Syrian Curriculum Reference Ecosystem 2026",
+        heroTitle: "Your Horizon Towards <span>Academic Excellence</span><br>From Grade 1 to Baccalaureate",
+        heroDesc: "The premier offline reference and training platform for Syrian textbooks with 100% unabridged verbatim ingestion, official ministerial grading criteria, MCQ exam simulation, and high-res diagram atlas.",
+        pLaw: "100% Verbatim Source Ingestion",
+        pBac: "Prime Baccalaureate & 9th Focus",
+        pOff: "100% Functional Offline",
+        pFree: "100% Free & Ad-Free",
+        pBi: "Pure Arabic / English LTR",
+        dlAndTitle: "Download for Android",
+        dlAndSub: "Direct APK Package",
+        dlWinTitle: "Download for Windows",
+        dlWinSub: "Portable ZIP Package",
+        versionText: "Unified Reference Release: v1.0.0 · Ready for Download",
+        stagesTag: "Comprehensive Curriculum Taxonomy",
+        stagesTitle: "Complete Coverage of All Syrian School Grades",
+        stagesDesc: "Engineered to guide Syrian students across every milestone, from early foundational primary learning to peak achievement in the general secondary certificates.",
+        stBtnBac: "General Secondary (Baccalaureate)",
+        stBtnNine: "Basic Education (9th Grade)",
+        stBtnPrep: "Middle School (7 - 8)",
+        stBtnPrim: "Primary School (1 - 6)",
+        pilTag: "Exclusive Academic Depth",
+        pilTitle: "The Four Baccalaureate Pillars in OFOQ",
+        pilDesc: "Rigorous pedagogical laws guaranteeing Syrian students total mastery and flawless ministerial exam readiness.",
+        simTag: "Interactive Simulation",
+        simTitle: "Experience the OFOQ Environment in Your Browser",
+        simDesc: "Sample live ministerial MCQs, inspect anatomical diagrams, and explore interactive theorem breakdowns as delivered inside the app.",
+        simBtn1: "MCQ Exam Simulator",
+        simBtn2: "OFOQ KaTeX Theorem Intuition",
+        simBtn3: "Interactive Diagram Labelling",
+        pbTitle: "A Safe, Distraction-Free Study Atmosphere Honoring Student Privacy",
+        pbDesc: "We are firmly dedicated to providing a pure academic sanctuary free from commercial advertisements, tracking scripts, and profiling. 100% of your study history resides locally on your device, with optional multi-device Google sync guarded by strict PostgreSQL Row-Level Security.",
+        pbBtn: "Read Full Privacy & Data Security Policy",
+        ftTagline: "The definitive reference and interactive ecosystem for Syrian curricula"
+      }
+    };
+
+    let currentLang = 'ar';
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      applyLanguage(currentLang);
+    }
+
+    function applyLanguage(lang) {
+      const html = document.getElementById('main-html');
+      const t = i18n[lang];
+      html.setAttribute('lang', lang);
+      html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+      document.getElementById('meta-title').innerText = t.metaTitle;
+      document.getElementById('nav-tagline').innerText = t.navTagline;
+      document.getElementById('nl-stages').innerText = t.nlStages;
+      document.getElementById('nl-pillars').innerText = t.nlPillars;
+      document.getElementById('nl-simulator').innerText = t.nlSimulator;
+      document.getElementById('nl-features').innerText = t.nlFeatures;
+      document.getElementById('nl-download').innerText = t.nlDownload;
+      document.getElementById('nl-privacy').innerText = t.nlPrivacy;
+      document.getElementById('lang-name').innerText = t.langName;
+      document.getElementById('hero-badge').querySelector('span').innerText = t.heroBadge;
+      document.getElementById('hero-title').innerHTML = t.heroTitle;
+      document.getElementById('hero-desc').innerText = t.heroDesc;
+      document.getElementById('p-law').innerText = t.pLaw;
+      document.getElementById('p-bac').innerText = t.pBac;
+      document.getElementById('p-off').innerText = t.pOff;
+      document.getElementById('p-free').innerText = t.pFree;
+      document.getElementById('p-bi').innerText = t.pBi;
+      document.getElementById('dl-and-title').innerText = t.dlAndTitle;
+      document.getElementById('dl-and-sub').innerText = t.dlAndSub;
+      document.getElementById('dl-win-title').innerText = t.dlWinTitle;
+      document.getElementById('dl-win-sub').innerText = t.dlWinSub;
+      document.getElementById('version-text').innerText = t.versionText;
+      document.getElementById('stages-tag').innerText = t.stagesTag;
+      document.getElementById('stages-title').innerText = t.stagesTitle;
+      document.getElementById('stages-desc').innerText = t.stagesDesc;
+      document.getElementById('st-btn-bac').innerText = t.stBtnBac;
+      document.getElementById('st-btn-nine').innerText = t.stBtnNine;
+      document.getElementById('st-btn-prep').innerText = t.stBtnPrep;
+      document.getElementById('st-btn-prim').innerText = t.stBtnPrim;
+      document.getElementById('pil-tag').innerText = t.pilTag;
+      document.getElementById('pil-title').innerText = t.pilTitle;
+      document.getElementById('pil-desc').innerText = t.pilDesc;
+      document.getElementById('sim-tag').innerText = t.simTag;
+      document.getElementById('sim-title').innerText = t.simTitle;
+      document.getElementById('sim-desc').innerText = t.simDesc;
+      document.getElementById('sim-btn-1').innerText = t.simBtn1;
+      document.getElementById('sim-btn-2').innerText = t.simBtn2;
+      document.getElementById('sim-btn-3').innerText = t.simBtn3;
+      document.getElementById('pb-title').innerHTML = '<i class="fa-solid fa-shield-halved"></i> ' + t.pbTitle;
+      document.getElementById('pb-desc').innerText = t.pbDesc;
+      document.getElementById('pb-btn').querySelector('span').innerText = t.pbBtn;
+      document.getElementById('ft-tagline').innerText = t.ftTagline;
+
+      const pbIcon = document.getElementById('pb-icon');
+      if (lang === 'en') {
+        pbIcon.className = 'fa-solid fa-arrow-right';
+      } else {
+        pbIcon.className = 'fa-solid fa-arrow-left';
+      }
+    }
+  </script>
+</body>
+</html>
